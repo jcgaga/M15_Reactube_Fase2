@@ -16,13 +16,12 @@ class SearchBar extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group role="form">
-          <Form.Label className="font-weight-bold">Video Search</Form.Label>
           <Form.Control
             type="text"
             value={this.state.search}
             placeholder="Search..."
             onChange={this.handleChange}
-            className="form-control"
+            className="form-control bg-dark border-0"
             spellCheck="false"
           />
         </Form.Group>

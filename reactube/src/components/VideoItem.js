@@ -7,11 +7,11 @@ const VideoItem = ({ video, handleVideoSelect }) => {
       onClick={() => handleVideoSelect(video)}
       className="d-flex flex-wrap align-items-center"
     >
-      <Col>
+      <Col xs={12}>
         <Image src={video.snippet.thumbnails.default.url}></Image>
       </Col>
-      <Col>
-        <h5>{video.snippet.title}</h5>
+      <Col xs={12} >
+        <h5 className="bg-white">{video.snippet.title}</h5>
       </Col>
     </Row>
   );

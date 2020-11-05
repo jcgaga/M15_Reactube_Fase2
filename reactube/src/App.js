@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Col, Container, Row } from "react-bootstrap";
 import SearchBar from "./components/SearchBar";
@@ -7,6 +6,7 @@ import VideoDetail from "./components/VideoDetail";
 import VideoList from "./components/VideoList";
 import youtube from "./api/youtube";
 import data from "./json/data.json";
+import NavBarMenu from "./components/NavBarMenu";
 class App extends Component {
   state = {
     videos: data,
@@ -34,29 +34,38 @@ class App extends Component {
     return (
       <div className="App">
         <Container>
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <code>REACTUBE FASE 1</code>
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
-          <section className="p-3">
-            <Row className="border rounded mb-3">
-              <Col xs={12}>
-                <SearchBar handleFormSubmit={this.handleSubmit} />
-              </Col>
-            </Row>
+          <section>
             <Row>
-              <Col xs={8}>
-                <VideoDetail
-                  video={this.state.selectedVideo}
-                  videoDefault={this.state.videos[0]}
-                />
+              <Col xs={2} className="bg-menu text-white">
+                <NavBarMenu />
               </Col>
-              <Col xs={4}>
-                <VideoList
-                  videos={this.state.videos}
-                  handleVideoSelect={this.handleVideoSelect}
-                />
+              <Col xs={10} className="bg-dark">
+                <Row>
+                  <Col xs={12}>
+                    <SearchBar handleFormSubmit={this.handleSubmit} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                    <VideoDetail
+                      video={this.state.selectedVideo}
+                      videoDefault={this.state.videos[0]}
+                    />
+                  </Col>
+                </Row>
+                <h5 className="pt-2 text-white">Related Video</h5>
+                <Row>
+                  <Col xs={12}>
+                    <div className="border rounded border-primary-2 mt-2 mb-4">
+                      <Row className="d-flex row m-2 p-2">
+                        <VideoList
+                          videos={this.state.videos}
+                          handleVideoSelect={this.handleVideoSelect}
+                        />
+                      </Row>
+                    </div>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </section>

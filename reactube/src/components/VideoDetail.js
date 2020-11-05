@@ -9,21 +9,24 @@ const VideoDetail = ({ video, videoDefault }) => {
   const videoSource = `https://www.youtube.com/embed/${video.id.videoId}`;
 
   return (
-    <Row>
-      <Col xs={12} className="pb-5">
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe
-            className="embed-responsive-item"
-            src={videoSource}
-            title="Video"
-          ></iframe>
-        </div>
-      </Col>
-      <Col xs={12} className="border rounded">
-        <h4 className="pt-3 pl-3">{video.snippet.title}</h4>
-        <p className="pt-3 pl-3">{video.snippet.description}</p>
-      </Col>
-    </Row>
+    <div className="border rounded border-primary-2">
+      <Row className="bg-white m-2 p-2 border rounded">
+        <Col xs={7} className="">
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              className="embed-responsive-item"
+              src={videoSource}
+              title="Video"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </Col>
+        <Col xs={5} className="d-flex row align-items-start">
+          <h4 className="">{video.snippet.title}</h4>
+          <p className="">{video.snippet.description}</p>
+        </Col>
+      </Row>
+    </div>
   );
 };
 
